@@ -65,7 +65,7 @@ for file in python_files:
 
 # Clean Up Project Specific Code (imported but not in a requirements.txt) -- you have the source code homie/homette
 remove_pkgs = []
-additional_stds = ("collections", "json", "urllib", "requests", "distutils", "logging", "math", "settings", "sys", "os", "time", "unicodedata")
+additional_stds = ("collections", "json", "urllib", "requests", "distutils", "logging", "math", "settings", "sys", "os", "time", "unicodedata", "importlib")
 std_pkgs = std_modules() #magic to check for Python standard modules
 for pkg in imported_packages:
     if pkg in dir_names:
