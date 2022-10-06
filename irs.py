@@ -1,6 +1,7 @@
+
 # IRS - Imported Requirements Search
 
-import os 
+import os
 
 import distutils.sysconfig as sysconfig
 def std_modules():
@@ -34,22 +35,22 @@ print(f"Number of Python Files: {len(python_files)}")
 # Search Files for "import" and "from" Statements
 for file in python_files:
     contents = open(file, "r").readlines()
-    for line in contents: 
+    for line in contents:
         line = line.split()
         # Empty Lines
         if len(line) == 0:
-            continue 
+            continue
         # Commented Out Code
         elif "#" in line[0]:
-            continue 
+            continue
 
         # Regular Imports
         if ("import" in line) and ("from" not in line):
-            pos = line.index("import") 
-            package = line[pos+1] 
-            if "." in package: 
+            pos = line.index("import")
+            package = line[pos+1]
+            if "." in package:
                 package = package.split(".")[0] #1st element is module we care about
-            #print(f"found {package} in {line}") 
+            #print(f"found {package} in {line}")
             imported_packages.update([package])
 
         # From Statements
@@ -61,7 +62,7 @@ for file in python_files:
                 pkg = pkg.split(".")[0] #1st element is module we care about
                 #print(pkg)
             imported_packages.update([pkg])
-            
+
 
 # Clean Up Project Specific Code (imported but not in a requirements.txt) -- you have the source code homie/homette
 remove_pkgs = []
